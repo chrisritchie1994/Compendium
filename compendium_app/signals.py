@@ -6,10 +6,10 @@ import re
 
 @receiver(post_save, sender=Journal)
 def data_dissemination(sender, instance, **kwargs):
-    models = [{"record_type": "idea", "open_tag": "#i", "close_tag": "#/i"},
-              {"record_type": "principle", "open_tag": "#p", "close_tag": "#/p"},
-              {"record_type": "decision", "open_tag": "#d", "close_tag": "#/d"},
-              {"record_type": "aphorism", "open_tag": "#a", "close_tag": "#/a"}
+    models = [{"record_type": "idea", "open_tag": "#i", "close_tag": "i#"},
+              {"record_type": "principle", "open_tag": "#p", "close_tag": "p#"},
+              {"record_type": "decision", "open_tag": "#d", "close_tag": "d#"},
+              {"record_type": "aphorism", "open_tag": "#a", "close_tag": "a#"}
               ]
     x_list = []
     for m in models:
