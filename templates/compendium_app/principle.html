@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+
+.grid {
+  -webkit-column-count: 3;
+  -webkit-column-gap: 10px;
+  -webkit-column-fill: auto;
+  -moz-column-count: 3;
+  -moz-column-gap: 10px;
+  -moz-column-fill: auto;
+  column-count: 4;
+  column-gap: 15px;
+  column-fill: auto;
+  font-family: "Lato"
+
+}
+.block {
+  display: block;
+  background-color: #0e1743;
+  color: white;
+  padding: 20px;
+  word-wrap: break-word;
+  margin-bottom: 20px;
+  -webkit-column-break-inside: avoid;
+  -moz-column-break-inside: avoid;
+  column-break-inside: avoid;
+  font-family: "San Francisco Text"
+}
+
+.one {
+  height: 125px;
+}
+
+.two {
+  height: 150px;
+}
+
+.three {
+  height: 175px;
+}
+
+h1 {
+    color: white;
+    font-family: "San Francisco Text";
+}
+</style>
+  <h1>Principles</h1>
+    <div class="grid">
+    {% for principle in principle_list %}
+    <div class="block {{ principle.r13 }}">
+    <h2>{{ principle.journal_id }}</h2>
+    {{ principle.principle }}</div>
+    {% endfor %}
+</div>
+
+{% endblock %}

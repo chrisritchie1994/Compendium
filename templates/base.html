@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Base_HTML Page </title>
+</head>
+<style>
+    body {
+        background-color: #181b2f
+    }
+    img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .topnav {
+        overflow: hidden;
+    }
+    .topnav a {
+        display: inline-block;
+        color: #f5fffa;
+        font-family: 'Source Sans Pro Black';
+        text-align: center;
+        text-decoration: none;
+        padding: 15px;
+        font-size: 20px;
+    }
+
+    .topnav a:hover {
+        color: #17f6ff;
+    }
+
+    #menu-outer {
+        height: 84px;
+    }
+
+    .table {
+        display: table;   /* Allow the centering to work */
+        margin: 0 auto;
+    }
+
+    ul#horizontal-list {
+        min-width: 696px;
+        list-style: none;
+    }
+    ul#horizontal-list li {
+        display: inline;
+    }
+</style>
+<body>
+{% load static %}
+<br>
+<br>
+<img src="{% static 'test.png' %}" alt="compendium_logo">
+<div id="menu-outer">
+    <div class="table">
+        <div class ="topnav">
+            <ul id="horizontal-list" class="active">
+                <li><a href="/journal/create/">NEW JOURNAL</a></li>
+                <li><a href="/journals/">JOURNAL</a></li>
+                <li><a href="/principles/">PRINCIPLE</a></li>
+                <li><a href="/decisions/">DECISION</a></li>
+                <li><a href="/ideas/">IDEA</a></li>
+                <li><a href="/aphorisms/">APHORISM</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+{% block content %}{% endblock content %}
+
+
+</body>
+</html>

@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-
+import random
 
 # Create your models here.
 
@@ -11,9 +11,28 @@ class Journal(models.Model):
     entry = models.TextField()
     rating = models.IntegerField(default=5)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    data_types = (
+        ("Real", "Real"),
+        ("Test", "Test")
+    )
+    data_type = models.CharField(
+        max_length=4,
+        choices=data_types,
+        default="Real"
+    )
 
     def __str__(self):
         return self.title
+
+    def r13(self):
+        num = random.randint(1,3)
+        if num == 1:
+            return "one"
+        elif num == 2:
+            return "two"
+        else:
+            return"three"
+
 
 
 class Idea(models.Model):
@@ -28,6 +47,16 @@ class Idea(models.Model):
         return self.idea
 
 
+    def r13(self):
+        num = random.randint(1,3)
+        if num == 1:
+            return "one"
+        elif num == 2:
+            return "two"
+        else:
+            return"three"
+
+
 class Decision(models.Model):
     decision_id = models.AutoField(primary_key=True)
     entry = models.TextField()
@@ -38,6 +67,15 @@ class Decision(models.Model):
 
     def __str__(self):
         return self.decision
+
+    def r13(self):
+        num = random.randint(1,3)
+        if num == 1:
+            return "one"
+        elif num == 2:
+            return "two"
+        else:
+            return"three"
 
 
 class Principle(models.Model):
@@ -51,6 +89,15 @@ class Principle(models.Model):
     def __str__(self):
         return self.principle
 
+    def r13(self):
+        num = random.randint(1,3)
+        if num == 1:
+            return "one"
+        elif num == 2:
+            return "two"
+        else:
+            return"three"
+
 
 class Aphorism(models.Model):
     aphorism_id = models.AutoField(primary_key=True)
@@ -63,5 +110,27 @@ class Aphorism(models.Model):
     def __str__(self):
         return self.aphorism
 
+    def r13(self):
+        num = random.randint(1,3)
+        if num == 1:
+            return "one"
+        elif num == 2:
+            return "two"
+        else:
+            return"three"
 
 
+class Subentry(models.Model):
+    subentries_id = models.AutoField(primary_key=True)
+    record_type = models.CharField(max_length=10)
+    open_tag = models.CharField(max_length=10)
+    close_tag =models.CharField(max_length=10)
+
+    def r13(self):
+        num = random.randint(1,3)
+        if num == 1:
+            return "one"
+        elif num == 2:
+            return "two"
+        else:
+            return"three"

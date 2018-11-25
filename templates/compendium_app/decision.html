@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+
+.grid {
+  -webkit-column-count: 3;
+  -webkit-column-gap: 10px;
+  -webkit-column-fill: auto;
+  -moz-column-count: 3;
+  -moz-column-gap: 10px;
+  -moz-column-fill: auto;
+  column-count: 4;
+  column-gap: 15px;
+  column-fill: auto;
+  font-family: "Lato"
+
+}
+.block {
+  display: block;
+  background-color: #3c8aff;
+  padding: 20px;
+  word-wrap: break-word;
+  margin-bottom: 20px;
+  -webkit-column-break-inside: avoid;
+  -moz-column-break-inside: avoid;
+  column-break-inside: avoid;
+  font-family: "San Francisco Text"
+}
+
+.one {
+  height: 200px;
+}
+
+.two {
+  height: 300px;
+}
+
+.three {
+  height: 400px;
+}
+
+h1 {
+    color: white;
+    font-family: "San Francisco Text";
+}
+</style>
+  <h1>Decisions</h1>
+    <div class="grid">
+    {% for decision in decision_list %}
+    <div class="block {{ decision.r13 }}">
+    <h2>{{ decision.journal_id }}</h2>
+    {{ decision.decision }}</div>
+    {% endfor %}
+</div>
+
+{% endblock %}

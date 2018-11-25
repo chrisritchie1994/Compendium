@@ -15,7 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from compendium_app.views import JournalCreate, JournalDelete, JournalView, IdeaView, DecisionView, AphorismView, PrincipleView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('journal/create/', JournalCreate.as_view(), name='journal_create'),
+    path('', JournalCreate.as_view(), name='journal_create'),
+    path('journal/<int:pk>/delete/', JournalDelete.as_view(), name='journal_delete'),
+    path('journals/', JournalView.as_view(), name='journals'),
+    path('ideas/', IdeaView.as_view(), name='ideas'),
+    path('decisions/', DecisionView.as_view(), name='decisions'),
+    path('aphorisms/', AphorismView.as_view(), name='ideas'),
+    path('principles/', PrincipleView.as_view(), name='ideas'),
 ]
