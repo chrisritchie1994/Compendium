@@ -29,15 +29,7 @@
 }
 
 .one {
-  height: 125px;
-}
-
-.two {
-  height: 150px;
-}
-
-.three {
-  height: 175px;
+  position: relative;
 }
 
 
@@ -49,7 +41,7 @@ h1 {
   <h1>Ideas</h1>
     <div class="grid">
     {% for idea in idea_list %}
-    <div class="block {{ idea.r13 }}">
+    <div class="block one">
     <h2>{{ idea.journal_id }}</h2>
     {{ idea.idea }}</div>
     {% endfor %}

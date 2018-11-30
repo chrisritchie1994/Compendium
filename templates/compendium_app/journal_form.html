@@ -9,8 +9,9 @@
 .code-window {
   width: 662px;
   background: #fff;
+  /* box-shadow: 0 1px 15px #25ccff; */
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.16);
-  margin: 3.3rem auto;
+  margin: 2.0rem auto;
   overflow: hidden;
   border-radius: 0.8rem;
 }
@@ -22,7 +23,6 @@
     background: white;
 }
 
-
 .button {
     background-color: #008cba;
     color: #e6edff;
@@ -32,8 +32,7 @@
     text-decoration: none;
     display: inline-block;
     cursor: progress;
-    position: absolute;
-    left: 28%;
+    position: relative;
     font-size: 18px
 
 }
@@ -43,6 +42,16 @@
     color: #ffffff;
 }
 
+.code-header {
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Roboto';
+  border-bottom: 2px solid #3aa5ed;
+  font-size: 1.1rem;
+  color: #3aa5ed;
+}
 
 #id_title {
     padding: 12px;
@@ -90,19 +99,21 @@ h3 {
          <ul><h3>Type</h3>{{ form.data_type }}</ul>
     </div>
         <div class ='code-window'> <!-- NB: Django entry_ID is connected to the text area through a bs hack, located in line 370  Compendium/static/codeflask.min.js-->
-        <div class="code-editor"></div>
+            <header class="code-header"> Journal Entry</header>
+            <div class="code-editor"></div>
         </div>
-    <input class = 'button' type="submit" value="Submit" align="right">
-
+        <div class="table_2">
+            <input class = 'button' type="submit" value="Submit" align="right">
+        </div>
 </form>
 
 <script>
    const flask = new CodeFlask('.code-editor', {
       language: 'compendium',
-      lineNumbers: true,
+      lineNumbers: false,
       //areaId: 'thing1',
        // ariaLabelledby: 'header1',
-      //handleTabs: true
+      handleTabs: true
     });
 
     //window['flask'] = flask;

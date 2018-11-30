@@ -24,14 +24,6 @@ class Journal(models.Model):
     def __str__(self):
         return self.title
 
-    def r13(self):
-        num = random.randint(1,3)
-        if num == 1:
-            return "one"
-        elif num == 2:
-            return "two"
-        else:
-            return"three"
 
 
 
@@ -47,14 +39,7 @@ class Idea(models.Model):
         return self.idea
 
 
-    def r13(self):
-        num = random.randint(1,3)
-        if num == 1:
-            return "one"
-        elif num == 2:
-            return "two"
-        else:
-            return"three"
+
 
 
 class Decision(models.Model):
@@ -68,14 +53,7 @@ class Decision(models.Model):
     def __str__(self):
         return self.decision
 
-    def r13(self):
-        num = random.randint(1,3)
-        if num == 1:
-            return "one"
-        elif num == 2:
-            return "two"
-        else:
-            return"three"
+
 
 
 class Principle(models.Model):
@@ -110,14 +88,7 @@ class Aphorism(models.Model):
     def __str__(self):
         return self.aphorism
 
-    def r13(self):
-        num = random.randint(1,3)
-        if num == 1:
-            return "one"
-        elif num == 2:
-            return "two"
-        else:
-            return"three"
+
 
 
 class Subentry(models.Model):
@@ -126,11 +97,3 @@ class Subentry(models.Model):
     open_tag = models.CharField(max_length=10)
     close_tag =models.CharField(max_length=10)
 
-    def r13(self):
-        num = random.randint(1,3)
-        if num == 1:
-            return "one"
-        elif num == 2:
-            return "two"
-        else:
-            return"three"

@@ -30,15 +30,7 @@
 }
 
 .one {
-  height: 125px;
-}
-
-.two {
-  height: 150px;
-}
-
-.three {
-  height: 175px;
+    position: relative;
 }
 
 
@@ -50,7 +42,7 @@ h1 {
   <h1>Aphorism</h1>
     <div class="grid">
     {% for aphorism in aphorism_list %}
-    <div class="block {{ aphorism.r13 }}">
+    <div class="block one">
     <h2>{{ aphorism.journal_id }}</h2>
     {{ aphorism.aphorism }}</div>
     {% endfor %}

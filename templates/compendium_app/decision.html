@@ -29,15 +29,7 @@
 }
 
 .one {
-  height: 200px;
-}
-
-.two {
-  height: 300px;
-}
-
-.three {
-  height: 400px;
+    position: relative;
 }
 
 h1 {
@@ -48,7 +40,7 @@ h1 {
   <h1>Decisions</h1>
     <div class="grid">
     {% for decision in decision_list %}
-    <div class="block {{ decision.r13 }}">
+    <div class="block one">
     <h2>{{ decision.journal_id }}</h2>
     {{ decision.decision }}</div>
     {% endfor %}

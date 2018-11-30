@@ -18,8 +18,7 @@
 }
 .block {
   display: block;
-  background-color: #0e1743;
-  color: white;
+  background-color: #c2c3d0;
   padding: 20px;
   word-wrap: break-word;
   margin-bottom: 20px;
@@ -30,9 +29,8 @@
 }
 
 .one {
-  position: relative;
+    position: relative;
 }
-
 
 
 h1 {
@@ -40,12 +38,12 @@ h1 {
     font-family: "San Francisco Text";
 }
 </style>
-  <h1>Principles</h1>
+  <h1>Journals</h1>
     <div class="grid">
-    {% for principle in principle_list %}
-    <div class="block  one">
-    <h2>{{ principle.journal_id }}</h2>
-    {{ principle.principle }}</div>
+    {% for journal in journal_list %}
+    <div class="block one">
+    <h2>{{ journal.title }}</h2>
+    {{ journal.entry }}</div>
     {% endfor %}
 </div>
 
