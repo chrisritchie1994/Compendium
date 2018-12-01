@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}My big kid login page{% endblock %}
+
+{% block content %}
+
+    <style>
+    .table_2 {
+    display: table;   /* Allow the centering to work */
+    margin: 0 auto;
+
+    }
+
+    h2 {
+    color: white;
+    font-family: "Roboto";
+    font-size: 26px;
+    }
+
+    h3 {
+    color: white;
+    font-family: "Roboto";
+    font-size: 16px;
+    text-align: left;
+    }
+
+    </style>
+
+  <div class="table_2">
+      <h2>You must be logged in to see your information</h2>
+      <h2>Login below</h2>
+  </div>
+
+
+  <form method="post">
+   {% csrf_token %}
+  <div class="table_2">
+    <ul><h3>Username</h3>{{ form.username }} </ul>
+    <ul><h3>Password </h3> {{ form.password }}</ul>
+      <ul><button type="submit">Login</button></ul>
+  </div>
+  </form>
+{% endblock %}

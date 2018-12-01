@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'pt6-nqe1g1=-6sb#y03%4!q@hnm%bgb9-r@ecn*abt1ydehy^r'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = True #was True
 
 ALLOWED_HOSTS = []
 
@@ -111,7 +111,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Australia/Brisbane'
 
 USE_I18N = True
 
@@ -135,3 +135,6 @@ STATICFILES_DIRS = (
 #TEMPLATE_DIRS = (
 #                os.path.join(PROJECT_DIR, 'template'), # if your static files folder is named "template"
 #)
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/accounts/login'

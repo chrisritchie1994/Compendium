@@ -46,6 +46,31 @@
     ul#horizontal-list li {
         display: inline;
     }
+
+.footer_logged {
+   position: relative;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   color: white;
+   text-align: center;
+   font-family: Roboto;
+    }
+
+    .footer_not_logged {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: #2398ff;
+   color: white;
+   text-align: center;
+   font-family: Roboto;
+    }
+
+#link {
+    color:white;
+}
 </style>
 <body>
 {% load static %}
@@ -69,6 +94,26 @@
 <br>
 <br>
 {% block content %}{% endblock content %}
+
+
+{% if not user.is_authenticated %}
+
+    <div class="footer_not_logged">
+            <p>You are not logged in, <a href="/accounts/login/" id="link">click here.</a></p>
+    </div>
+{% else %}
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="footer_logged">
+            <p>You are currently logged in as {{ user.username}}, to logout <a href="/accounts/logout/" id="link">click here.</a></p>
+    </div>
+{% endif %}
+
 
 
 </body>

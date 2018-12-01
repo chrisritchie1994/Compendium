@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 
 {% block content %}
+{% load static %}
+<script src="{% static 'prism.js' %}"></script>
+<link rel="stylesheet" href="{% static 'prism.css' %}">
+
 <style>
 
 .grid {
@@ -18,7 +22,7 @@
 }
 .block {
   display: block;
-  background-color: #c2c3d0;
+  background-color: #f0f2ff;
   padding: 20px;
   word-wrap: break-word;
   margin-bottom: 20px;
@@ -43,7 +47,10 @@ h1 {
     {% for journal in journal_list %}
     <div class="block one">
     <h2>{{ journal.title }}</h2>
-    {{ journal.entry }}</div>
+    <code class="language-compendium">
+    {{ journal.entry }}
+        </code>
+        </div>
     {% endfor %}
 </div>
 

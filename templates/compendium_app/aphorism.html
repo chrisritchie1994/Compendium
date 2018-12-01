@@ -38,12 +38,17 @@ h1 {
     color: white;
     font-family: "San Francisco Text";
 }
+
+a {
+    color: white;
+}
+
 </style>
   <h1>Aphorism</h1>
     <div class="grid">
     {% for aphorism in aphorism_list %}
     <div class="block one">
-    <h2>{{ aphorism.journal_id }}</h2>
+    <a href="/journal/{{ aphorism.journal_id.pk }}"> <h2>{{ aphorism.journal_id }}</h2> </a>
     {{ aphorism.aphorism }}</div>
     {% endfor %}
 </div>

@@ -37,12 +37,17 @@ h1 {
     color: white;
     font-family: "San Francisco Text";
 }
+
+a {
+    color: black;
+}
+
 </style>
   <h1>Ideas</h1>
     <div class="grid">
     {% for idea in idea_list %}
     <div class="block one">
-    <h2>{{ idea.journal_id }}</h2>
+    <a href="/journal/{{ idea.journal_id.pk }}"> <h2>{{ idea.journal_id }}</h2> </a>
     {{ idea.idea }}</div>
     {% endfor %}
 </div>

@@ -39,12 +39,17 @@ h1 {
     color: white;
     font-family: "San Francisco Text";
 }
+
+a {
+    color: white;
+}
+
 </style>
   <h1>Principles</h1>
     <div class="grid">
     {% for principle in principle_list %}
     <div class="block  one">
-    <h2>{{ principle.journal_id }}</h2>
+    <a href="/journal/{{ principle.journal_id.pk }}"> <h2>{{ principle.journal_id }}</h2> </a>
     {{ principle.principle }}</div>
     {% endfor %}
 </div>

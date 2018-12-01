@@ -41,12 +41,17 @@ h1 {
     color: white;
     font-family: "San Francisco Text";
 }
+
+a {
+    color: black;
+}
+
 </style>
   <h1>Journals</h1>
     <div class="grid">
     {% for journal in journal_list %}
     <div class="block one">
-    <h2>{{ journal.title }}</h2>
+    <a href="/journal/{{ journal.pk }}"> <h2>{{ journal.title }}</h2> </a>
     <code class="language-compendium">
     {{ journal.entry }}
         </code>

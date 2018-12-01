@@ -36,12 +36,16 @@ h1 {
     color: white;
     font-family: "San Francisco Text";
 }
+
+a {
+    color: black
+}
 </style>
   <h1>Decisions</h1>
     <div class="grid">
     {% for decision in decision_list %}
     <div class="block one">
-    <h2>{{ decision.journal_id }}</h2>
+    <a href="/journal/{{ decision.journal_id.pk }}"> <h2>{{ decision.journal_id }}</h2> </a>
     {{ decision.decision }}</div>
     {% endfor %}
 </div>

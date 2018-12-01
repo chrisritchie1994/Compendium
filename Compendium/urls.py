@@ -14,17 +14,20 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from compendium_app.views import JournalCreate, JournalDelete, JournalView, IdeaView, DecisionView, AphorismView, PrincipleView
+from django.urls import path, include
+from compendium_app.views import JournalCreate, JournalDelete, JournalUpdate, JournalView, JournalDetailView, IdeaView, DecisionView, AphorismView, PrincipleView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('journal/create/', JournalCreate.as_view(), name='journal_create'),
     path('', JournalCreate.as_view(), name='journal_create'),
     path('journal/<int:pk>/delete/', JournalDelete.as_view(), name='journal_delete'),
+    path('journal/<int:pk>/update/', JournalUpdate.as_view(), name='journal_update'),
+    path('journal/<int:pk>', JournalDetailView.as_view(), name='journal_detail'),
     path('journals/', JournalView.as_view(), name='journals'),
     path('ideas/', IdeaView.as_view(), name='ideas'),
     path('decisions/', DecisionView.as_view(), name='decisions'),
     path('aphorisms/', AphorismView.as_view(), name='ideas'),
     path('principles/', PrincipleView.as_view(), name='ideas'),
+    path('accounts/', include('django.contrib.auth.urls')),
 ]
