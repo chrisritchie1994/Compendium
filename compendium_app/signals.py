@@ -39,16 +39,16 @@ def data_dissemination(sender, instance, **kwargs):
             x_list.append(x_record)
     for r in x_list:
         if r["record_type"] == 'idea':
-            i = Idea(entry=r['idea'], idea=r['idea'], created_by=instance.created_by, journal_id=instance)
+            i = Idea(entry=r['idea'], idea=r['idea'], created_by=instance.created_by, journal=instance)
             i.save()
         elif r["record_type"] == 'decision':
-            d = Decision(entry=r['decision'], decision=r['decision'], created_by=instance.created_by, journal_id=instance)
+            d = Decision(entry=r['decision'], decision=r['decision'], created_by=instance.created_by, journal=instance)
             d.save()
         elif r["record_type"] == 'principle':
-            p = Principle(entry=r['principle'], principle=r['principle'], created_by=instance.created_by, journal_id=instance)
+            p = Principle(entry=r['principle'], principle=r['principle'], created_by=instance.created_by, journal=instance)
             p.save()
         elif r["record_type"] == 'aphorism':
-            a = Aphorism(entry=r['aphorism'], aphorism=r['aphorism'], created_by=instance.created_by, journal_id=instance)
+            a = Aphorism(entry=r['aphorism'], aphorism=r['aphorism'], created_by=instance.created_by, journal=instance)
             a.save()
 
 

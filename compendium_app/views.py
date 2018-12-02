@@ -1,4 +1,5 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, render_to_response
+from django.template import RequestContext
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views import generic
 from django.urls import reverse_lazy
@@ -11,8 +12,12 @@ from .models import Journal, Principle, Idea, Decision, Aphorism
 
 class JournalCreate(CreateView):
     model = Journal
-    fields = '__all__'
+    fields = ['title', 'rating', 'data_type', 'entry']
     success_url = reverse_lazy('journals')
+
+    def form_valid(self, form):
+        form.instance.created_by = self.request.user
+        return super().form_valid(form)
 
 
 class JournalUpdate(UpdateView):
@@ -28,6 +33,12 @@ class JournalDelete(DeleteView):
 
 class JournalDetailView(generic.DetailView):
     model = Journal
+
+    def get(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            return redirect('/accounts/login/')
+        else:
+            return super(JournalDetailView, self).get(self, request, *args, **kwargs)
 
 
 class JournalView(generic.ListView):
@@ -49,7 +60,7 @@ class PrincipleView(generic.ListView):
     template_name = 'compendium_app/principle.html'
 
     def get_queryset(self):
-        return self.model.objects.filter(created_by=self.request.user, journal_id__data_type='Real')
+        return self.model.objects.filter(created_by=self.request.user, journal__data_type='Real')
 
     def get(self, request, *args, **kwargs):
         if not request.user.is_authenticated:
@@ -63,7 +74,7 @@ class IdeaView(generic.ListView):
     template_name = 'compendium_app/idea.html'
 
     def get_queryset(self):
-        return self.model.objects.filter(created_by=self.request.user, journal_id__data_type='Real')
+        return self.model.objects.filter(created_by=self.request.user, journal__data_type='Real')
 
     def get(self, request, *args, **kwargs):
         if not request.user.is_authenticated:
@@ -77,7 +88,7 @@ class DecisionView(generic.ListView):
     template_name = 'compendium_app/decision.html'
 
     def get_queryset(self):
-        return self.model.objects.filter(created_by=self.request.user, journal_id__data_type='Real')
+        return self.model.objects.filter(created_by=self.request.user, journal__data_type='Real')
 
     def get(self, request, *args, **kwargs):
         if not request.user.is_authenticated:
@@ -91,12 +102,11 @@ class AphorismView(generic.ListView):
     template_name = 'compendium_app/aphorism.html'
 
     def get_queryset(self):
-        return self.model.objects.filter(created_by=self.request.user, journal_id__data_type='Real')
+        return self.model.objects.filter(created_by=self.request.user, journal__data_type='Real')
 
     def get(self, request, *args, **kwargs):
         if not request.user.is_authenticated:
             return redirect('/accounts/login/')
         else:
             return super(AphorismView, self).get(self, request, *args, **kwargs)
-
 

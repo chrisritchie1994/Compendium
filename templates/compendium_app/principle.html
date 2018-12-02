@@ -44,14 +44,37 @@ a {
     color: white;
 }
 
+.a_title {
+    color: black
+}
+
+.a_create{
+    color: #ffffff
+}
+
+
+.demo-class {
+    color: white;
+    font-family: "San Francisco Text";
+
+}
+
 </style>
   <h1>Principles</h1>
     <div class="grid">
     {% for principle in principle_list %}
     <div class="block  one">
-    <a href="/journal/{{ principle.journal_id.pk }}"> <h2>{{ principle.journal_id }}</h2> </a>
+    <a href="/journal/{{ principle.journal.pk }}"> <h2>{{ principle.journal }}</h2> </a>
     {{ principle.principle }}</div>
     {% endfor %}
 </div>
+
+{% for principle in principle_list %}
+    {% if principle %}
+        {{ break }}
+    {% endif %}
+{% empty %}
+    <p class="demo-class">You haven't created any principles yet, you can get started <a class="a_create" href="/journal/create/">here</a></p>
+{% endfor %}
 
 {% endblock %}

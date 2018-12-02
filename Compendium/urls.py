@@ -15,7 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from compendium_app.views import JournalCreate, JournalDelete, JournalUpdate, JournalView, JournalDetailView, IdeaView, DecisionView, AphorismView, PrincipleView
+from django.conf.urls import url
+from compendium_app.views import JournalCreate, JournalDelete,JournalUpdate, JournalView, JournalDetailView, IdeaView, DecisionView, AphorismView, PrincipleView
+from django.views.generic.base import TemplateView
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -30,4 +33,5 @@ urlpatterns = [
     path('aphorisms/', AphorismView.as_view(), name='ideas'),
     path('principles/', PrincipleView.as_view(), name='ideas'),
     path('accounts/', include('django.contrib.auth.urls')),
+    url(r'^404/', TemplateView.as_view(template_name='404.html'))
 ]

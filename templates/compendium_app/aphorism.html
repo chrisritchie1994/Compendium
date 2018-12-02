@@ -43,14 +43,38 @@ a {
     color: white;
 }
 
+.a_title {
+    color: black
+}
+
+.a_create{
+    color: #ffffff
+}
+
+
+.demo-class {
+    color: white;
+    font-family: "San Francisco Text";
+
+}
+
 </style>
   <h1>Aphorism</h1>
     <div class="grid">
     {% for aphorism in aphorism_list %}
     <div class="block one">
-    <a href="/journal/{{ aphorism.journal_id.pk }}"> <h2>{{ aphorism.journal_id }}</h2> </a>
+    <a href="/journal/{{ aphorism.journal.pk }}"> <h2>{{ aphorism.journal}}</h2> </a>
     {{ aphorism.aphorism }}</div>
     {% endfor %}
 </div>
+
+{% for aphorism in aphorism_list %}
+    {% if aphorism %}
+        {{ break }}
+    {% endif %}
+{% empty %}
+    <p class="demo-class">You haven't created any aphorisms yet, you can get started <a class="a_create" href="/journal/create/">here</a></p>
+{% endfor %}
+
 
 {% endblock %}

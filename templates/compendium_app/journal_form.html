@@ -65,11 +65,6 @@
     font-size: 18px;
 }
 
-#id_created_by {
-    padding: 12px;
-    width: 660px;
-    font-size: 18px;
-}
 
 #id_data_type {
     padding: 12px;
@@ -95,7 +90,6 @@ h3 {
 
         <ul id="horizontal-list"><h3>Title</h3>{{ form.title }}</ul>
         <ul><h3>Rating</h3>{{ form.rating}}</ul>
-        <ul><h3>User</h3>{{ form.created_by }}</ul>
          <ul><h3>Type</h3>{{ form.data_type }}</ul>
     </div>
         <div class ='code-window'> <!-- NB: Django entry_ID is connected to the text area through a bs hack, located in line 370  Compendium/static/codeflask.min.js-->

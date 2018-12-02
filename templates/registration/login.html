@@ -1,43 +1,114 @@
-{% extends 'base.html' %}
-
-{% block title %}My big kid login page{% endblock %}
+<html>
 
 {% block content %}
 
-    <style>
-    .table_2 {
-    display: table;   /* Allow the centering to work */
-    margin: 0 auto;
+<style>
+    body {
+      background: #2d343d;
+    }
+
+    .login {
+      margin: 20px auto;
+      width: 300px;
+      padding: 30px 25px;
+      background: white;
+      border: 1px solid #c4c4c4;
+    }
+
+    h1.login-title-1 {
+      margin: -28px -25px 25px;
+      padding: 15px 25px;
+      line-height: 30px;
+      font-size: 25px;
+      font-weight: 300;
+      color: #fff9fb;
+      text-align:center;
+      background: #48a6c6;
+      font-family: Roboto;
 
     }
 
-    h2 {
-    color: white;
-    font-family: "Roboto";
-    font-size: 26px;
+    h1.login-title-2 {
+      margin: -28px -25px 25px;
+      padding: 15px 25px;
+      line-height: 30px;
+      font-size: 25px;
+      font-weight: 300;
+      color: #ADADAD;
+      text-align:center;
+      background: #f7f7f7;
+      font-family: Roboto;
+
     }
 
-    h3 {
-    color: white;
-    font-family: "Roboto";
-    font-size: 16px;
-    text-align: left;
+    .login-input {
+      width: 285px;
+      height: 50px;
+      margin-bottom: 25px;
+      padding-left:10px;
+      font-size: 15px;
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .login-input:focus {
+        border-color:#6e8095;
+        outline: none;
+      }
+    .login-button {
+      width: 100%;
+      height: 50px;
+      padding: 0;
+      font-size: 20px;
+      color: #fff;
+      text-align: center;
+      background: #f0776c;
+      border: 0;
+      border-radius: 5px;
+      cursor: pointer;
+      outline:0;
     }
 
-    </style>
+    .login-lost
+    {
+      text-align:center;
+      margin-bottom:0px;
+      font-family: Roboto;
+    }
 
-  <div class="table_2">
-      <h2>You must be logged in to see your information</h2>
-      <h2>Login below</h2>
-  </div>
+    .login-lost a
+    {
+      color:#666;
+      text-decoration:none;
+      font-size:13px;
+    }
+
+    img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
+
+{% load static %}
 
 
-  <form method="post">
+<img src="{% static 'compendium_logo.png' %}" alt="compendium_logo" >
+
+   <form class="login" method="post">
    {% csrf_token %}
-  <div class="table_2">
-    <ul><h3>Username</h3>{{ form.username }} </ul>
-    <ul><h3>Password </h3> {{ form.password }}</ul>
-      <ul><button type="submit">Login</button></ul>
-  </div>
+   <h1 class="login-title-1">You must login before you start creating new entries</h1>
+   <h1 class="login-title-2">Login</h1>
+    {% load widget_tweaks %}
+    {{form.username|attr:"class:login-input"|attr:"placeholder:Email Address"}}
+    {{ form.password|attr:"class:login-input"|attr:"placeholder:Password"}}
+
+   <input type="submit" value="Lets Go" class="login-button">
+  <p class="login-lost"><a href="">Forgot Password?</a></p>
   </form>
+
+
+
 {% endblock %}
+
+</html>

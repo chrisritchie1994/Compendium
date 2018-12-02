@@ -35,8 +35,7 @@ class Idea(models.Model):
     idea = models.TextField()
     application = models.CharField(max_length=200)
     created_by = models.ForeignKey(User, on_delete=models.CASCADE)
-    journal_id = models.ForeignKey(Journal, on_delete=models.CASCADE)
-
+    journal = models.ForeignKey(Journal, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.idea
@@ -52,7 +51,7 @@ class Decision(models.Model):
     decision = models.TextField()
     application = models.CharField(max_length=200)
     created_by = models.ForeignKey(User, on_delete=models.CASCADE)
-    journal_id = models.ForeignKey(Journal, on_delete=models.CASCADE)
+    journal = models.ForeignKey(Journal, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.decision
@@ -68,7 +67,7 @@ class Principle(models.Model):
     principle = models.TextField()
     application = models.CharField(max_length=200)
     created_by = models.ForeignKey(User, on_delete=models.CASCADE)
-    journal_id = models.ForeignKey(Journal, on_delete=models.CASCADE)
+    journal = models.ForeignKey(Journal, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.principle
@@ -84,7 +83,7 @@ class Aphorism(models.Model):
     aphorism = models.TextField()
     application = models.CharField(max_length=200)
     created_by = models.ForeignKey(User, on_delete=models.CASCADE)
-    journal_id = models.ForeignKey(Journal, on_delete=models.CASCADE)
+    journal = models.ForeignKey(Journal, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.aphorism

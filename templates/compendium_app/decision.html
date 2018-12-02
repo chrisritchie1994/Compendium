@@ -37,17 +37,37 @@ h1 {
     font-family: "San Francisco Text";
 }
 
-a {
+.a_title {
     color: black
 }
+
+.a_create{
+    color: #ffffff
+}
+
+
+.demo-class {
+    color: white;
+    font-family: "San Francisco Text";
+
+}
+
 </style>
   <h1>Decisions</h1>
     <div class="grid">
     {% for decision in decision_list %}
     <div class="block one">
-    <a href="/journal/{{ decision.journal_id.pk }}"> <h2>{{ decision.journal_id }}</h2> </a>
+    <a class="a_title" href="/journal/{{ decision.journal.pk }}"> <h2>{{ decision.journal }}</h2> </a>
     {{ decision.decision }}</div>
     {% endfor %}
 </div>
+
+{% for decision in decision_list %}
+    {% if decision %}
+        {{ break }}
+    {% endif %}
+{% empty %}
+    <p class="demo-class">You haven't created any decisions yet, you can get started <a class="a_create" href="/journal/create/">here</a></p>
+{% endfor %}
 
 {% endblock %}

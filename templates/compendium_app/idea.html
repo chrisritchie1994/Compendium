@@ -42,14 +42,37 @@ a {
     color: black;
 }
 
+.a_title {
+    color: black
+}
+
+.a_create{
+    color: #ffffff
+}
+
+
+.demo-class {
+    color: white;
+    font-family: "San Francisco Text";
+
+}
+
 </style>
   <h1>Ideas</h1>
     <div class="grid">
     {% for idea in idea_list %}
     <div class="block one">
-    <a href="/journal/{{ idea.journal_id.pk }}"> <h2>{{ idea.journal_id }}</h2> </a>
+    <a href="/journal/{{ idea.journal.pk }}"> <h2>{{ idea.journal }}</h2> </a>
     {{ idea.idea }}</div>
     {% endfor %}
 </div>
+
+{% for idea in idea_list %}
+    {% if idea %}
+        {{ break }}
+    {% endif %}
+{% empty %}
+    <p class="demo-class">You haven't created any ideas yet, you can get started <a class="a_create" href="/journal/create/">here</a></p>
+{% endfor %}
 
 {% endblock %}

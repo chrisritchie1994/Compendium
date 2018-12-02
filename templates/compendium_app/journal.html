@@ -59,4 +59,12 @@ a {
     {% endfor %}
 </div>
 
+{% for journal in journal_list %}
+    {% if journal %}
+        {{ break }}
+    {% endif %}
+{% empty %}
+    <p class="demo-class">You haven't created any journals yet, you can get started <a class="a_create" href="/journal/create/">here</a></p>
+{% endfor %}
+
 {% endblock %}
