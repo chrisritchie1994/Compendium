@@ -4,7 +4,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views import generic
 from django.urls import reverse_lazy
 from django.http import Http404
-from .models import Journal, Principle, Idea, Decision, Aphorism
+from .models import Journal, Principle, Idea, Decision, Aphorism, Observation
 
 
 # Create your views here.
@@ -109,4 +109,18 @@ class AphorismView(generic.ListView):
             return redirect('/accounts/login/')
         else:
             return super(AphorismView, self).get(self, request, *args, **kwargs)
+
+
+class ObservationView(generic.ListView):
+    model = Observation
+    template_name = 'compendium_app/observation.html'
+
+    def get_queryset(self):
+        return self.model.objects.filter(created_by=self.request.user, journal__data_type='Real')
+
+    def get(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            return redirect('/accounts/login/')
+        else:
+            return super(ObservationView, self).get(self, request, *args, **kwargs)
 

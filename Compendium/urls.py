@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls import url
-from compendium_app.views import JournalCreate, JournalDelete,JournalUpdate, JournalView, JournalDetailView, IdeaView, DecisionView, AphorismView, PrincipleView
+from compendium_app.views import JournalCreate, JournalDelete,JournalUpdate, JournalView, JournalDetailView, IdeaView, DecisionView, AphorismView, PrincipleView, ObservationView
 from django.views.generic.base import TemplateView
 
 
@@ -31,7 +31,8 @@ urlpatterns = [
     path('ideas/', IdeaView.as_view(), name='ideas'),
     path('decisions/', DecisionView.as_view(), name='decisions'),
     path('aphorisms/', AphorismView.as_view(), name='ideas'),
-    path('principles/', PrincipleView.as_view(), name='ideas'),
+    path('principles/', PrincipleView.as_view(), name='principles'),
+    path('observations/', ObservationView.as_view(), name='observation'),
     path('accounts/', include('django.contrib.auth.urls')),
     url(r'^404/', TemplateView.as_view(template_name='404.html'))
 ]

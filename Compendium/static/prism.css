@@ -144,3 +144,8 @@ pre[class*="language-"] {
 .token.idea {
 	color: #f5902b;
 }
+
+
+.token.observation {
+	color: #00bfff;
+}

@@ -1,6 +1,6 @@
 from django.db.models.signals import post_save
 from django.dispatch import receiver
-from compendium_app.models import Journal, Idea, Decision, Principle, Aphorism
+from compendium_app.models import Journal, Idea, Decision, Principle, Aphorism, Observation
 import re
 
 
@@ -9,7 +9,8 @@ def data_dissemination(sender, instance, **kwargs):
     models = [{"record_type": "idea", "open_tag": "#i", "close_tag": "i#"},
               {"record_type": "principle", "open_tag": "#p", "close_tag": "p#"},
               {"record_type": "decision", "open_tag": "#d", "close_tag": "d#"},
-              {"record_type": "aphorism", "open_tag": "#a", "close_tag": "a#"}
+              {"record_type": "aphorism", "open_tag": "#a", "close_tag": "a#"},
+              {"record_type": "observation", "open_tag": "#o", "close_tag": "o#"}
               ]
     x_list = []
     for m in models:
@@ -50,6 +51,9 @@ def data_dissemination(sender, instance, **kwargs):
         elif r["record_type"] == 'aphorism':
             a = Aphorism(entry=r['aphorism'], aphorism=r['aphorism'], created_by=instance.created_by, journal=instance)
             a.save()
+        elif r["record_type"] == 'observation':
+            o = Observation(entry=r['observation'], observation=r['observation'], created_by=instance.created_by, journal=instance)
+            o.save()
 
 
 
