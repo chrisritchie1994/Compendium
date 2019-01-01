@@ -108,6 +108,22 @@ class Observation(models.Model):
         ordering = ['-pk']
 
 
+class Lesson(models.Model):
+    lesson_id = models.AutoField(primary_key=True)
+    date_created = models.DateTimeField(auto_now_add=True, blank=True)
+    entry = models.TextField()
+    lesson = models.TextField()
+    application = models.CharField(max_length=200)
+    created_by = models.ForeignKey(User, on_delete=models.CASCADE)
+    journal = models.ForeignKey(Journal, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.lesson
+
+    class Meta:
+        ordering = ['-pk']
+
+
 class Subentry(models.Model):
     subentries_id = models.AutoField(primary_key=True)
     date_created = models.DateTimeField(auto_now_add=True, blank=True)

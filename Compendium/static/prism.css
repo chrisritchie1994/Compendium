@@ -149,3 +149,7 @@ pre[class*="language-"] {
 .token.observation {
 	color: #00bfff;
 }
+
+.token.lesson {
+	color: #22D997;
+}

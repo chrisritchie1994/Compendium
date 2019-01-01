@@ -248,7 +248,7 @@ Prism.languages.clike = {
     punctuation: /[{}[\];(),.:]/
 };
 //Prism.languages.compendium={tagger:[{pattern:/(^|[^\\])\/\*[\s\S]*?(?:\*\/|$)/,lookbehind:!0},{pattern:/(^|[^\\:])\/\/.*/,lookbehind:!0,greedy:!0}]}
-Prism.languages.compendium = {principle: [{pattern: /#p([\S\s]*?)p#/g}], aphorism: [{pattern: /#a([\S\s]*?)a#/g}], decision: [{pattern: /#d([\S\s]*?)d#/g}], idea: [{pattern: /#i([\S\s]*?)i#/g}], observation: [{pattern: /#o([\S\s]*?)o#/g}]};
+Prism.languages.compendium = {principle: [{pattern: /#p([\S\s]*?)p#/g}], aphorism: [{pattern: /#a([\S\s]*?)a#/g}], decision: [{pattern: /#d([\S\s]*?)d#/g}], idea: [{pattern: /#i([\S\s]*?)i#/g}], observation: [{pattern: /#o([\S\s]*?)o#/g}], lesson: [{pattern: /#l([\S\s]*?)l#/g}]};
 //{pattern:/#p(.*?)#/p}};
 Prism.languages.javascript = Prism.languages.extend("clike", {
     "class-name": [Prism.languages.clike["class-name"], {
